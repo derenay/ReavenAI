@@ -24,6 +24,7 @@ const navbarse = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
             <Nav.Link href="/about" className="nav-link-custom">About</Nav.Link>
+            <Nav.Link href="/clients" className="nav-link-custom">Clients</Nav.Link>
             <NavDropdown 
               title="Products" 
               id="basic-nav-dropdown"

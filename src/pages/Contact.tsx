@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log('Form Data:', formData);
+    
+    // Form verilerini sıfırla
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+  };
+
   return (
     <div className="contact-page">
       {/* Hero Section */}
@@ -70,13 +98,16 @@ const Contact = () => {
               <Card className="contact-form-card border-0 hover-effect">
                 <Card.Body className="p-4 p-md-5">
                   <h2 className="text-center gradient-text mb-4">Send us a Message</h2>
-                  <Form>
+                  <Form onSubmit={handleSubmit}>
                     <Row className="g-4">
                       <Col md={6}>
                         <Form.Group>
                           <Form.Label>Name</Form.Label>
                           <Form.Control 
                             type="text" 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Your name"
                             className="form-control-custom"
                           />
@@ -87,6 +118,9 @@ const Contact = () => {
                           <Form.Label>Email</Form.Label>
                           <Form.Control 
                             type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Your email"
                             className="form-control-custom"
                           />
@@ -97,6 +131,9 @@ const Contact = () => {
                           <Form.Label>Subject</Form.Label>
                           <Form.Control 
                             type="text" 
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
                             placeholder="Message subject"
                             className="form-control-custom"
                           />
@@ -108,6 +145,9 @@ const Contact = () => {
                           <Form.Control 
                             as="textarea" 
                             rows={5} 
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                             placeholder="Your message"
                             className="form-control-custom"
                           />

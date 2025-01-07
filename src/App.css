@@ -3,11 +3,14 @@
   --bg-primary: #0a0a0a;
   --bg-secondary: #121212;
   --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
+  --text-secondary: rgba(255, 255, 255, 0.7);
   --accent-purple: #8b5cf6;
   --accent-blue: #3b82f6;
   --hover-purple: #7c3aed;
   --border-color: #2d2d2d;
+  --bs-heading-color: var(--text-primary);
+  --bs-card-color: var(--text-primary);
+  --bs-body-color: var(--text-primary);
 }
 
 body {
@@ -141,6 +144,10 @@ a:hover {
 }
 
 /* Text colors */
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+
 .text-muted {
   color: var(--text-secondary) !important;
 }
@@ -156,3 +163,19 @@ a:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
   }
+
+/* Heading colors */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: var(--text-primary) !important;
+}
+
+/* Card içindeki paragraflar için özel stil */
+.card p {
+  color: var(--text-primary) !important;
+}
+
+.card .text-secondary,
+.card .text-muted {
+  color: var(--text-secondary) !important;
+}
