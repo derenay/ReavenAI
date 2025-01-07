@@ -1,0 +1,92 @@
+.hero-main {
+  min-height: 100vh;
+  background: linear-gradient(45deg, var(--bg-primary), var(--bg-secondary));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+.hero-main h1 {
+  background: linear-gradient(45deg, #fff, #b3b3b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.get-started-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+}
+
+.hero-image {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.feature-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.5rem;
+}
+
+.cta-section {
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue));
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  border-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--text-primary);
+  color: var(--accent-purple);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero-main {
+    padding: 100px 0;
+    min-height: auto;
+  }
+
+  .hero-main h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,158 @@
+/* Dark theme colors */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #121212;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-purple: #8b5cf6;
+  --accent-blue: #3b82f6;
+  --hover-purple: #7c3aed;
+  --border-color: #2d2d2d;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card styles */
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+/* Link hover effects */
+a {
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-purple);
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue));
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Section styles */
+.section-title {
+  color: var(--text-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+/* Hero section */
+.hero-section-small {
+  background: linear-gradient(to right, var(--bg-secondary), var(--bg-primary));
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Feature icons */
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.feature-icon svg {
+  color: white;
+}
+
+/* Form styles */
+.form-control {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.form-control:focus {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar .nav-link {
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent-purple) !important;
+}
+
+/* Text hover effect */
+.hover-effect {
+  transition: all 0.3s ease;
+}
+
+.hover-effect:hover {
+  color: var(--accent-purple);
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+/* Footer styles */
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Badge styles */
+.badge.bg-primary {
+  background: linear-gradient(45deg, var(--accent-purple), var(--accent-blue)) !important;
+}
+
+/* Card body padding */
+.card-body {
+  padding: 2rem;
+}
+
+/* Text colors */
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+} 
+
+.hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+  }
