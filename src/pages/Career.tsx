@@ -1,29 +1,50 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { FaBrain, FaUsers, FaRocket, FaGraduationCap } from 'react-icons/fa';
-import './Career.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import { FaBrain, FaUsers, FaGraduationCap, FaRocket } from 'react-icons/fa';
+import { 
+  PageContainer, 
+  PageHero, 
+  PageSection, 
+  IconBox, 
+  ContentBox,
+  ContentTitle,
+  ContentText,
+  ContentWrapper,
+  GradientText,
+  SectionTitle,
+  SectionSubtitle 
+} from '../styles/PageStyles';
 
 const Career = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="career-page">
-      {/* Header Section */}
-      <section className="career-hero d-flex align-items-center">
+    <PageContainer>
+      <PageHero>
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h1 className="display-3 fw-bold mb-4 gradient-text">Join Our Team</h1>
-              <p className="lead mb-0">
-                Shape the future of AI technology with us
-              </p>
+              <GradientText>Join Our Team</GradientText>
+              <ContentText>
+                Be part of a team that's shaping the future of creative AI solutions.
+              </ContentText>
             </Col>
           </Row>
         </Container>
-      </section>
+      </PageHero>
 
-      {/* Benefits Section */}
-      <section className="benefits-section py-5">
+      <PageSection>
         <Container>
-          <h2 className="text-center gradient-text mb-5">Why Join Reaven AI?</h2>
+          <Row className="justify-content-center text-center mb-5">
+            <Col lg={8}>
+              <SectionTitle>Why Join Us?</SectionTitle>
+              <SectionSubtitle>
+                Discover the opportunities that await you at Shape Creative
+              </SectionSubtitle>
+            </Col>
+          </Row>
           <Row className="g-4">
             {[
               {
@@ -48,65 +69,81 @@ const Career = () => {
               }
             ].map((benefit, index) => (
               <Col md={6} lg={3} key={index}>
-                <Card className="h-100 border-0 hover-effect">
-                  <Card.Body className="text-center p-4">
-                    <div className="feature-icon">
+                <ContentBox>
+                  <ContentWrapper>
+                    <IconBox>
                       {benefit.icon}
-                    </div>
-                    <h3 className="h4 mb-3">{benefit.title}</h3>
-                    <p className="text-secondary mb-0">{benefit.description}</p>
-                  </Card.Body>
-                </Card>
+                    </IconBox>
+                    <ContentTitle>{benefit.title}</ContentTitle>
+                    <ContentText>{benefit.description}</ContentText>
+                  </ContentWrapper>
+                </ContentBox>
               </Col>
             ))}
           </Row>
         </Container>
-      </section>
+      </PageSection>
 
-      {/* Open Positions */}
-      <section className="positions-section py-5">
+      <PageSection>
         <Container>
-          <h2 className="text-center gradient-text mb-5">Open Positions</h2>
+          <Row className="justify-content-center text-center mb-5">
+            <Col lg={8}>
+              <SectionTitle>Open Positions</SectionTitle>
+              <SectionSubtitle>
+                Join our team and help shape the future of AI
+              </SectionSubtitle>
+            </Col>
+          </Row>
           <Row className="g-4">
             {[
               {
                 title: "AI Engineer",
-                description: "Join our AI team to develop cutting-edge solutions for our clients.",
-                requirements: ["5+ years experience", "ML/DL expertise", "Python proficiency"]
+                department: "Engineering",
+                location: "Remote",
+                type: "Full-time"
               },
               {
-                title: "Full Stack Developer",
-                description: "Build robust and scalable applications for AI integration.",
-                requirements: ["3+ years experience", "React/Node.js", "Cloud platforms"]
+                title: "UX Designer",
+                department: "Design",
+                location: "İzmir",
+                type: "Full-time"
+              },
+              {
+                title: "Product Manager",
+                department: "Product",
+                location: "Hybrid",
+                type: "Full-time"
               }
-            ].map((position, index) => (
-              <Col lg={6} key={index}>
-                <Card className="h-100 border-0 hover-effect">
-                  <Card.Body className="p-4">
-                    <h3 className="h4 mb-3">{position.title}</h3>
-                    <p className="mb-4">{position.description}</p>
-                    <div className="mb-4">
-                      <h4 className="h6 text-secondary mb-3">Requirements:</h4>
-                      <ul className="text-secondary">
-                        {position.requirements.map((req, i) => (
-                          <li key={i}>{req}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span className="badge bg-gradient px-3 py-2">Full-time</span>
-                      <Button variant="primary" href="/contact" className="apply-btn">
+            ].map((job, index) => (
+              <Col md={4} key={index}>
+                <ContentBox>
+                  <ContentWrapper>
+                    <ContentTitle>{job.title}</ContentTitle>
+                    <ContentText><strong>Department:</strong> {job.department}</ContentText>
+                    <ContentText><strong>Location:</strong> {job.location}</ContentText>
+                    <ContentText><strong>Type:</strong> {job.type}</ContentText>
+                    <form onSubmit={handleSubmit}>
+                      <button 
+                        type="submit"
+                        className="btn btn-primary mt-3 w-100"
+                        style={{
+                          background: 'linear-gradient(45deg, #8B5CF6, #6366F1)',
+                          border: 'none',
+                          padding: '10px 20px',
+                          transition: 'all 0.3s ease'
+                        }}
+                      >
                         Apply Now
-                      </Button>
-                    </div>
-                  </Card.Body>
-                </Card>
+                      </button>
+                    </form>
+                  </ContentWrapper>
+                </ContentBox>
               </Col>
             ))}
           </Row>
         </Container>
-      </section>
-    </div>
+      </PageSection>
+    </PageContainer>
   );
 };
 

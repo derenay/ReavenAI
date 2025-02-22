@@ -4,15 +4,15 @@ import { FaLinkedin, FaGithub, FaTwitter, FaPhone, FaEnvelope, FaMapMarkerAlt } 
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light py-5">
+    <footer className="py-5" style={{ background: 'radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%)' }}>
       <Container>
         <Row>
           {/* Company Info */}
           <Col md={4} className="mb-4">
-            <h5 className="mb-3">Reaven AI</h5>
-            <p className="mb-2"><FaMapMarkerAlt className="me-2" />İzmir, Turkey</p>
-            <p className="mb-2"><FaPhone className="me-2" />+90 (000) 123 45 67</p>
-            <p className="mb-2"><FaEnvelope className="me-2" />info@reavenai.com</p>
+            <h5 className="mb-3 text-light">Shape Creativity</h5>
+            <p className="mb-2 text-light"><FaMapMarkerAlt className="me-2" />İzmir, Turkey</p>
+            <p className="mb-2 text-light"><FaPhone className="me-2" />+90 (000) 123 45 67</p>
+            <p className="mb-2 text-light"><FaEnvelope className="me-2" />info@shapecreative.com</p>
             <div className="social-icons mt-3">
               <a href="#" className="text-light me-3"><FaLinkedin size={20} /></a>
               <a href="#" className="text-light me-3"><FaGithub size={20} /></a>
@@ -45,7 +45,7 @@ const Footer = () => {
         {/* Bottom Footer */}
         <Row className="mt-4 pt-4 border-top">
           <Col className="text-center">
-            <p className="mb-0">&copy; 2025 Reaven AI. All rights reserved.</p>
+            <p className="mb-0 text-light">&copy; 2025 Shape Creative. All rights reserved.</p>
           </Col>
         </Row>
       </Container>

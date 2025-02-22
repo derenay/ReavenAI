@@ -1,7 +1,32 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from 'react-icons/fa';
-import './Contact.css';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { PageContainer, PageHero, PageSection, GradientText, StyledCard, IconBox, ContentBox } from '../styles/PageStyles';
+import styled from 'styled-components';
+
+const ContactCard = styled(Card)`
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const ContactFormCard = styled(StyledCard)`
+  input, textarea {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(139, 92, 246, 0.2);
+    color: white !important;
+    
+    &:focus {
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25);
+    }
+  }
+`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,167 +36,120 @@ const Contact = () => {
     message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log('Form Data:', formData);
-    
-    // Form verilerini sıfırla
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-  };
-
   return (
-    <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero d-flex align-items-center">
+    <PageContainer>
+      <PageHero>
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h1 className="display-3 fw-bold mb-4 gradient-text">Contact Us</h1>
-              <p className="lead mb-0">
-                Get in touch with us for any inquiries
+              <GradientText>Get in Touch</GradientText>
+              <p className="lead mb-0 text-light">
+                Have a question or want to work together? We'd love to hear from you.
               </p>
             </Col>
           </Row>
         </Container>
-      </section>
+      </PageHero>
 
-      {/* Contact Info Cards */}
-      <section className="contact-info py-5">
+      <PageSection>
         <Container>
           <Row className="g-4">
             {[
               {
-                icon: <FaMapMarkerAlt />,
-                title: "Address",
-                info: "İzmir, Turkey"
-              },
-              {
                 icon: <FaPhone />,
                 title: "Phone",
-                info: "+90 (555) 123 45 67"
+                info: "+90 (000) 123 45 67"
               },
               {
                 icon: <FaEnvelope />,
                 title: "Email",
-                info: "info@reavenai.com"
+                info: "contact@shapecreative.com"
               },
               {
-                icon: <FaClock />,
-                title: "Working Hours",
-                info: "Mon - Fri: 9:00 AM - 6:00 PM"
+                icon: <FaMapMarkerAlt />,
+                title: "Location",
+                info: "İzmir, Turkey"
               }
             ].map((item, index) => (
-              <Col md={6} lg={3} key={index}>
-                <Card className="contact-card h-100 border-0 hover-effect">
-                  <Card.Body className="text-center p-4">
-                    <div className="contact-icon mb-3">
-                      {item.icon}
-                    </div>
-                    <h3 className="h5 mb-3">{item.title}</h3>
-                    <p className="text-secondary mb-0">{item.info}</p>
-                  </Card.Body>
-                </Card>
+              <Col md={4} key={index}>
+                <IconBox>
+                  {item.icon}
+                </IconBox>
+                <ContentBox>
+                  <h3>{item.title}</h3>
+                  <p>{item.info}</p>
+                </ContentBox>
               </Col>
             ))}
           </Row>
         </Container>
-      </section>
+      </PageSection>
 
-      {/* Contact Form */}
-      <section className="contact-form-section py-5">
+      <PageSection>
         <Container>
           <Row className="justify-content-center">
             <Col lg={8}>
-              <Card className="contact-form-card border-0 hover-effect">
-                <Card.Body className="p-4 p-md-5">
-                  <h2 className="text-center gradient-text mb-4">Send us a Message</h2>
-                  <Form onSubmit={handleSubmit}>
-                    <Row className="g-4">
-                      <Col md={6}>
-                        <Form.Group>
-                          <Form.Label>Name</Form.Label>
-                          <Form.Control 
-                            type="text" 
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            placeholder="Your name"
-                            className="form-control-custom"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group>
-                          <Form.Label>Email</Form.Label>
-                          <Form.Control 
-                            type="email" 
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            placeholder="Your email"
-                            className="form-control-custom"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={12}>
-                        <Form.Group>
-                          <Form.Label>Subject</Form.Label>
-                          <Form.Control 
-                            type="text" 
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleChange}
-                            placeholder="Message subject"
-                            className="form-control-custom"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={12}>
-                        <Form.Group>
-                          <Form.Label>Message</Form.Label>
-                          <Form.Control 
-                            as="textarea" 
-                            rows={5} 
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            placeholder="Your message"
-                            className="form-control-custom"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={12} className="text-center">
-                        <Button 
-                          variant="primary" 
-                          type="submit" 
-                          size="lg"
-                          className="submit-btn mt-3"
-                        >
-                          Send Message
-                        </Button>
-                      </Col>
-                    </Row>
-                  </Form>
-                </Card.Body>
-              </Card>
+              <ContentBox style={{ position: 'relative', zIndex: 100 }}>
+                <Form>
+                  <Row className="g-3">
+                    <Col md={6}>
+                      <Form.Group>
+                        <Form.Label className="text-light">Name</Form.Label>
+                        <Form.Control 
+                          type="text" 
+                          placeholder="Your name"
+                          className="bg-transparent text-light"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                      <Form.Group>
+                        <Form.Label className="text-light">Email</Form.Label>
+                        <Form.Control 
+                          type="email" 
+                          placeholder="Your email"
+                          className="bg-transparent text-light"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Form.Group>
+                        <Form.Label className="text-light">Subject</Form.Label>
+                        <Form.Control 
+                          type="text" 
+                          placeholder="Subject"
+                          className="bg-transparent text-light"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Form.Group>
+                        <Form.Label className="text-light">Message</Form.Label>
+                        <Form.Control 
+                          as="textarea" 
+                          rows={5}
+                          placeholder="Your message"
+                          className="bg-transparent text-light"
+                        />
+                      </Form.Group>
+                    </Col>
+                    <Col md={12}>
+                      <Button 
+                        variant="primary" 
+                        type="submit"
+                        className="w-100 mt-3"
+                      >
+                        Send Message
+                      </Button>
+                    </Col>
+                  </Row>
+                </Form>
+              </ContentBox>
             </Col>
           </Row>
         </Container>
-      </section>
-    </div>
+      </PageSection>
+    </PageContainer>
   );
 };
 
