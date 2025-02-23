@@ -107,3 +107,157 @@
     font-size: 2.5rem;
   }
 }
+
+.features-section {
+  padding: 120px 0;
+  background: #000000;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.feature-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(45deg, #8B5CF6, #6366F1);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.feature-list li {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.feature-list li::before {
+  content: "•";
+  color: #8B5CF6;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.why-choose-us-section {
+  padding: 120px 0;
+  background: #000000;
+  position: relative;
+}
+
+.why-choose-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.why-choose-card .feature-icon-wrapper {
+  margin: 0 auto 1.5rem;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #8B5CF6, #6366F1);
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.why-choose-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-10px);
+}
+
+.why-choose-card .feature-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.why-choose-card .feature-description {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.achievements-section {
+  padding: 120px 0;
+  background: #000000;
+  position: relative;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.achievement-card:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  transform: translateY(-10px);
+}
+
+.achievement-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #8B5CF6;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #8B5CF6, #6366F1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achievement-title {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.achievement-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
