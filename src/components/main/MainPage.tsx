@@ -161,65 +161,6 @@ const MainPage = () => {
         </Container>
       </section>
 
-      {/* Our Achievements Section */}
-      <section className="achievements-section py-6">
-        <Container>
-          <Row className="justify-content-center text-center mb-5">
-            <Col lg={8}>
-              <motion.div {...fadeIn}>
-                <h2 className="section-title">Our Achievements</h2>
-                <p className="section-subtitle">
-                  Our track record speaks for itself - see what we've accomplished
-                </p>
-              </motion.div>
-            </Col>
-          </Row>
-          <motion.div
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <Row className="g-4">
-              {[
-                {
-                  number: "500+",
-                  title: "Projects Completed",
-                  description: "Successfully delivered projects across various industries"
-                },
-                {
-                  number: "98%",
-                  title: "Client Satisfaction",
-                  description: "Consistently high satisfaction rates from our clients"
-                },
-                {
-                  number: "24/7",
-                  title: "Support Available",
-                  description: "Round-the-clock technical support and assistance"
-                },
-                {
-                  number: "50+",
-                  title: "Expert Team Members",
-                  description: "Skilled professionals dedicated to your success"
-                }
-              ].map((achievement, index) => (
-                <Col md={6} lg={3} key={index}>
-                  <motion.div
-                    variants={cardVariants}
-                    whileHover={{ y: -10, transition: { duration: 0.2 } }}
-                    className="achievement-card"
-                  >
-                    <h3 className="achievement-number">{achievement.number}</h3>
-                    <h4 className="achievement-title">{achievement.title}</h4>
-                    <p className="achievement-description">{achievement.description}</p>
-                  </motion.div>
-                </Col>
-              ))}
-            </Row>
-          </motion.div>
-        </Container>
-      </section>
-
       {/* Why Choose Us Section */}
       <section className="why-choose-us-section py-6">
         <Container>

@@ -8,6 +8,8 @@ import About from './pages/About'
 import Career from './pages/Career'
 import Contact from './pages/Contact'
 import Clients from './pages/Clients'
+import Products from './pages/Products'
+import ProductDetail from './pages/ProductDetail'
 import './App.css'
 
 // Title component to handle title changes
@@ -41,6 +43,8 @@ function App() {
         <Route path="/career" element={<Career/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/clients" element={<Clients/>}/>
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
       </Routes>
       <Footer/>
     </Router>

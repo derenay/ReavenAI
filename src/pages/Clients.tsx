@@ -15,6 +15,7 @@ import {
   GradientText 
 } from '../styles/PageStyles';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 
 
@@ -41,6 +42,24 @@ const StarRating = styled.div`
 `;
 
 const Clients = () => {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
+  const cardVariants = {
+    initial: { opacity: 0, y: 50 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   const clientsList = [
     {
       name: 'Tech Solutions Inc.',
@@ -83,10 +102,12 @@ const Clients = () => {
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <GradientText>Our Clients</GradientText>
-              <ContentText>
-                Trusted by industry leaders worldwide to deliver innovative AI solutions.
-              </ContentText>
+              <motion.div {...fadeIn}>
+                <GradientText>Our Clients</GradientText>
+                <ContentText>
+                  Trusted by industry leaders worldwide to deliver innovative AI solutions.
+                </ContentText>
+              </motion.div>
             </Col>
           </Row>
         </Container>
@@ -96,23 +117,36 @@ const Clients = () => {
         <Container>
           <Row className="justify-content-center text-center mb-5">
             <Col lg={8}>
-              <h2 className="text-light mb-4">Success Stories</h2>
-              <p className="text-light-50">
-                See how we've helped businesses transform their operations with AI-powered solutions.
-              </p>
+              <motion.div {...fadeIn}>
+                <h2 className="text-light mb-4">Success Stories</h2>
+                <p className="text-light-50">
+                  See how we've helped businesses transform their operations with AI-powered solutions.
+                </p>
+              </motion.div>
             </Col>
           </Row>
           <Row className="g-4">
             {clientsList.map((client, index) => (
               <Col md={4} key={index}>
-                <IconBox>
-                  <FaStar />
-                </IconBox>
-                <ContentBox>
-                  <h3>{client.name}</h3>
-                  <p>{client.description}</p>
-                  <p className="mt-3">{client.testimonial}</p>
-                </ContentBox>
+                <motion.div
+                  variants={cardVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  whileHover={{ y: -10, transition: { duration: 0.2 } }}
+                >
+                  <ClientCard className="p-4">
+                    <QuoteIcon />
+                    <StarRating>
+                      {[...Array(client.rating)].map((_, i) => (
+                        <FaStar key={i} />
+                      ))}
+                    </StarRating>
+                    <h4 className="text-light mb-3">{client.name}</h4>
+                    <p className="text-light-50 mb-4">{client.testimonial}</p>
+                    <small className="text-light-50">{client.industry}</small>
+                  </ClientCard>
+                </motion.div>
               </Col>
             ))}
           </Row>
@@ -123,23 +157,33 @@ const Clients = () => {
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <SectionTitle>Industry Partners</SectionTitle>
-              <SectionSubtitle>
-                We collaborate with leading companies across various industries.
-              </SectionSubtitle>
+              <motion.div {...fadeIn}>
+                <SectionTitle>Industry Partners</SectionTitle>
+                <SectionSubtitle>
+                  We collaborate with leading companies across various industries.
+                </SectionSubtitle>
+              </motion.div>
             </Col>
           </Row>
           <Row className="g-4">
             {industries.map((industry, index) => (
               <Col md={4} lg={2} key={index}>
-                <ContentBox>
-                  <ContentWrapper>
-                    <IconBox>
-                      {industry.icon}
-                    </IconBox>
-                    <ContentTitle>{industry.name}</ContentTitle>
-                  </ContentWrapper>
-                </ContentBox>
+                <motion.div
+                  variants={cardVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <ContentBox>
+                    <ContentWrapper>
+                      <IconBox>
+                        {industry.icon}
+                      </IconBox>
+                      <ContentTitle>{industry.name}</ContentTitle>
+                    </ContentWrapper>
+                  </ContentBox>
+                </motion.div>
               </Col>
             ))}
           </Row>
@@ -150,19 +194,35 @@ const Clients = () => {
         <Container>
           <Row className="align-items-center">
             <Col lg={6} className="mb-4 mb-lg-0">
-              <h2 className="text-light mb-4">Ready to Transform Your Business?</h2>
-              <p className="text-light-50">
-                Join our growing list of satisfied clients and experience the power of AI-driven solutions.
-              </p>
+              <motion.div {...fadeIn}>
+                <h2 className="text-light mb-4">Ready to Transform Your Business?</h2>
+                <p className="text-light-50">
+                  Join our growing list of satisfied clients and experience the power of AI-driven solutions.
+                </p>
+              </motion.div>
             </Col>
             <Col lg={6}>
-              <ClientCard className="p-4 text-center">
-                <h3 className="text-light mb-3">Get Started Today</h3>
-                <p className="text-light-50 mb-4">
-                  Contact us to learn how we can help your business succeed with AI.
-                </p>
-                <button className="btn btn-primary btn-lg">Contact Us</button>
-              </ClientCard>
+              <motion.div
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <ClientCard className="p-4 text-center">
+                  <h3 className="text-light mb-3">Get Started Today</h3>
+                  <p className="text-light-50 mb-4">
+                    Contact us to learn how we can help your business succeed with AI.
+                  </p>
+                  <motion.button 
+                    className="btn btn-primary btn-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Contact Us
+                  </motion.button>
+                </ClientCard>
+              </motion.div>
             </Col>
           </Row>
         </Container>
